@@ -1,31 +1,32 @@
-name: Unpack research artifact
+name: Expand research artifact
 
 on:
   push:
     branches: [main]
     paths:
-      - "artifact/GITHUB_ARTIFACT_UPLOAD_READY.zip"
+      - "artifact/chunk07.b64"
 
 permissions:
   contents: write
 
 jobs:
-  unpack:
+  expand:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Expand artifact into repository
+      - name: Reconstruct and expand artifact
         shell: bash
         run: |
           set -euo pipefail
-          ARCHIVE="artifact/GITHUB_ARTIFACT_UPLOAD_READY.zip"
-          if [ ! -f "$ARCHIVE" ]; then
-            echo "Archive already expanded."
+          if [ ! -f artifact/chunk07.b64 ]; then
+            echo "Artifact already expanded."
             exit 0
           fi
-          unzip -o "$ARCHIVE" -d .
-          rm -f "$ARCHIVE"
-          rmdir artifact 2>/dev/null || true
+          cat artifact/chunk*.b64 > artifact.b64
+          base64 -d artifact.b64 > artifact.zip
+          unzip -o artifact.zip -d .
+          rm -f artifact.b64 artifact.zip
+          rm -rf artifact
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
