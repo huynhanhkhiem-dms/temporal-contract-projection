@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "artifact/chunk05.b64"
       - "artifact/chunk07.b64"
 
 permissions:
