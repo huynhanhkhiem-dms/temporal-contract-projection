@@ -1,0 +1,94 @@
+{
+  "integer_bound": 7,
+  "admissible_envelopes": 120,
+  "ordered_envelope_pairs": 14400,
+  "reconstruction_mismatches": 0,
+  "intersection_reduced_meet_mismatches": 0,
+  "deployment_transfer_mismatches": 0,
+  "projection_debt_mismatches": 0,
+  "commutation_condition_mismatches": 0,
+  "three_source_cases": 42875,
+  "three_source_mismatches": 0,
+  "release_cap_separation_cases": 210,
+  "release_cap_separation_mismatches": 0,
+  "theorem6_M_over_2_family": [
+    {
+      "M": 4,
+      "exact": [
+        2,
+        1
+      ],
+      "post": [
+        4,
+        1
+      ],
+      "ratio": 2.0,
+      "projection_debt": 2
+    },
+    {
+      "M": 8,
+      "exact": [
+        2,
+        1
+      ],
+      "post": [
+        8,
+        1
+      ],
+      "ratio": 4.0,
+      "projection_debt": 6
+    },
+    {
+      "M": 16,
+      "exact": [
+        2,
+        1
+      ],
+      "post": [
+        16,
+        1
+      ],
+      "ratio": 8.0,
+      "projection_debt": 14
+    },
+    {
+      "M": 32,
+      "exact": [
+        2,
+        1
+      ],
+      "post": [
+        32,
+        1
+      ],
+      "ratio": 16.0,
+      "projection_debt": 30
+    },
+    {
+      "M": 64,
+      "exact": [
+        2,
+        1
+      ],
+      "post": [
+        64,
+        1
+      ],
+      "ratio": 32.0,
+      "projection_debt": 62
+    },
+    {
+      "M": 128,
+      "exact": [
+        2,
+        1
+      ],
+      "post": [
+        128,
+        1
+      ],
+      "ratio": 64.0,
+      "projection_debt": 126
+    }
+  ]
+}

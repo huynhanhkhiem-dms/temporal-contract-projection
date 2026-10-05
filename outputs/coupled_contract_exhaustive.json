@@ -1,0 +1,46 @@
+{
+  "n_max": 3,
+  "dags": 11,
+  "contract_cases": 1806,
+  "realization_evaluations": 141986,
+  "grid": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "contract_templates": [
+    [
+      1.0,
+      1.0,
+      1.0
+    ],
+    [
+      0.5,
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.5,
+      1.0
+    ],
+    [
+      0.5,
+      0.5,
+      1.0
+    ],
+    [
+      1.0,
+      1.0,
+      0.5
+    ],
+    [
+      0.5,
+      1.0,
+      0.5
+    ]
+  ],
+  "mismatches": 0,
+  "examples": [],
+  "note": "Finite grid regression only; theorem is proved analytically."
+}

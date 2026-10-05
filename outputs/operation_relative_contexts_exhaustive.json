@@ -1,0 +1,16 @@
+{
+  "integer_bound": 6,
+  "predecessor_x_max": 12,
+  "admissible_envelopes": 84,
+  "ordered_envelope_pairs": 7056,
+  "semantic_probe_evaluations": 3313818,
+  "contextual_preorder_mismatches": 0,
+  "proof_probe_mismatches": 0,
+  "point_set_bound": 4,
+  "point_set_envelopes": 35,
+  "point_set_pairs": 1225,
+  "point_set_transfer_evaluations": 11025,
+  "point_set_meet_mismatches": 0,
+  "point_set_transfer_mismatches": 0,
+  "first_mismatches": []
+}

@@ -1,0 +1,41 @@
+{
+  "grid_points": 9,
+  "nonempty_sets": 511,
+  "ordered_set_pairs": 261121,
+  "nonempty_intersection_pairs": 242461,
+  "union_mismatches": 0,
+  "contextual_preorder_probe_mismatches": 0,
+  "probe_x_values": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0
+  ],
+  "posthoc_conjunction_nonidentifiability_witness": {
+    "input_signature_P": [
+      3.0,
+      2.0
+    ],
+    "input_signature_R": [
+      3.0,
+      2.0
+    ],
+    "intersection_PP": [
+      3.0,
+      2.0
+    ],
+    "intersection_PR": [
+      3.0,
+      0.0
+    ]
+  }
+}

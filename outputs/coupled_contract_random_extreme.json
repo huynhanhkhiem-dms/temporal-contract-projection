@@ -1,0 +1,17 @@
+{
+  "seed": 20260914,
+  "random_cases": 2500,
+  "nodes_max": 5,
+  "by_n": {
+    "4": 538,
+    "3": 512,
+    "5": 494,
+    "2": 452,
+    "1": 504
+  },
+  "extreme_point_realization_evaluations": 496292,
+  "max_vertex_product": 2000,
+  "mismatch_count": 0,
+  "mismatches": [],
+  "note": "Finite falsification search: enumerates local-polytope vertices and evaluates the original completion recurrence rather than the closed-form coupled recurrence."
+}

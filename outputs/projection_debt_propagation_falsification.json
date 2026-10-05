@@ -1,0 +1,13 @@
+{
+  "seed": 2026091423,
+  "exhaustive_small_cases": 14124,
+  "exhaustive_small_node_evaluations": 42060,
+  "random_envelope_cases": 50000,
+  "random_envelope_node_evaluations": 224730,
+  "random_cases_with_nonzero_global_gap": 16949,
+  "total_cases": 64124,
+  "total_node_evaluations": 266790,
+  "mismatches": 0,
+  "first_mismatches": [],
+  "claim": "For every vertex, early-compression overestimate is bounded by the largest local projection debt among its ancestors; the global gap is bounded by the maximum local debt."
+}

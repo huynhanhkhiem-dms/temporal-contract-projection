@@ -1,0 +1,38 @@
+{
+  "mismatches": 0,
+  "mokka": {
+    "analysis_assumption": "the configured termination grace is treated as the model horizon; documented extension and scheduler/runtime effects are outside the model",
+    "drain_envelope": [
+      30.0,
+      30.0,
+      5.0
+    ],
+    "early_projection_deployment": [
+      30.0,
+      5.0
+    ],
+    "late_fusion_deployment": [
+      15.0,
+      5.0
+    ],
+    "late_fusion_envelope": [
+      15.0,
+      10.0,
+      5.0
+    ],
+    "platform_envelope": [
+      30.0,
+      10.0,
+      30.0
+    ],
+    "projection_debt_seconds": 15.0,
+    "semantic_scope": "closed declared configuration clock; not a wall-clock runtime SLA"
+  },
+  "note": "Mokka result is conditional on the explicit closed configuration-clock assumption; it is not a scheduler-inclusive runtime measurement or SLA.",
+  "trino": {
+    "grace_period_seconds": 120.0,
+    "reason": "no finite upper bound for the active-task completion wait in the cited source contract",
+    "status": "Unknown"
+  },
+  "verifier": "configuration_cases"
+}

@@ -1,0 +1,51 @@
+{
+  "access_date": "2026-09-16",
+  "scope_note": "The Mokka case is evaluated in declared configuration semantics. Configuration literals are not asserted to be universal scheduler-inclusive wall-clock bounds.",
+  "sources": [
+    {
+      "case": "Mokka/Kubernetes",
+      "source": "Kubernetes Pod Lifecycle - termination of Pods",
+      "url": "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/",
+      "supports": "termination grace begins before PreStop; PreStop precedes TERM; a short one-off extension may be requested if PreStop is still running when grace expires"
+    },
+    {
+      "case": "Mokka/Kubernetes",
+      "source": "Kubernetes Container Lifecycle Hooks",
+      "url": "https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/",
+      "supports": "PreStop and Sleep lifecycle-hook semantics"
+    },
+    {
+      "case": "Mokka/Kubernetes",
+      "repository": "NVIDIA/k8s-test-infra",
+      "commit": "27d03c241aec8c70f2c9699b899e780ffd9896b1",
+      "paths": [
+        "deployments/nvml-mock/helm/nvml-mock/values.yaml",
+        "deployments/nvml-mock/helm/nvml-mock/templates/controlplane-deployment.yaml",
+        "deployments/nvml-mock/helm/nvml-mock/tests/controlplane_test.yaml",
+        "docs/tools/control-plane.md",
+        "internal/controlplane/server.go"
+      ],
+      "url": "https://github.com/NVIDIA/k8s-test-infra/tree/27d03c241aec8c70f2c9699b899e780ffd9896b1",
+      "supports": "30-s primary termination-grace setting, 10-s native PreStop Sleep declaration, 5-s shutdown timeout, and context-bounded HTTP shutdown implementation"
+    },
+    {
+      "case": "Trino",
+      "source": "Trino 483 Documentation - Graceful shutdown",
+      "url": "https://trino.io/docs/current/admin/graceful-shutdown.html",
+      "supports": "120-s default shutdown.grace-period, two fixed sleeps, and an intervening wait until all active tasks complete with no finite upper bound stated on that page"
+    },
+    {
+      "case": "Trino",
+      "repository": "trinodb/charts",
+      "commit": "503a3621db8fd88cd53218060cd6f15d2702cd24",
+      "paths": [
+        "charts/trino/values.yaml",
+        "charts/trino/README.md",
+        "charts/trino/templates/configmap-worker.yaml",
+        "charts/trino/templates/deployment-worker.yaml"
+      ],
+      "url": "https://github.com/trinodb/charts/tree/503a3621db8fd88cd53218060cd6f15d2702cd24/charts/trino",
+      "supports": "gracefulShutdown.gracePeriodSeconds default 120 s; chart default worker.terminationGracePeriodSeconds 30 s; and a chart-side check that fails rendering unless worker.terminationGracePeriodSeconds is at least twice the configured grace period when graceful shutdown is enabled"
+    }
+  ]
+}

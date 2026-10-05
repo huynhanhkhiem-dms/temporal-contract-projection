@@ -1,0 +1,37 @@
+{
+  "schema": "timing-evidence/v1",
+  "component": "Trino worker graceful shutdown",
+  "clock": "configuration",
+  "claims": [
+    {
+      "id": "grace_before",
+      "kind": "duration_exact",
+      "value_seconds": 120,
+      "clock": "configuration",
+      "provenance": "Trino documentation, Graceful shutdown (shutdown.grace-period, default 2 min, first sleep), https://trino.io/docs/current/admin/graceful-shutdown.html; trinodb/charts@503a3621db8fd88cd53218060cd6f15d2702cd24:charts/trino/values.yaml (worker.gracefulShutdown.gracePeriodSeconds: 120)"
+    },
+    {
+      "id": "active_task_wait",
+      "kind": "unknown_duration",
+      "clock": "configuration",
+      "provenance": "Trino documentation, Graceful shutdown: the worker blocks until all active tasks complete; no finite upper bound is stated for that wait, https://trino.io/docs/current/admin/graceful-shutdown.html"
+    },
+    {
+      "id": "grace_after",
+      "kind": "duration_exact",
+      "value_seconds": 120,
+      "clock": "configuration",
+      "provenance": "Trino documentation, Graceful shutdown (second sleep for the same grace period), https://trino.io/docs/current/admin/graceful-shutdown.html; trinodb/charts@503a3621db8fd88cd53218060cd6f15d2702cd24:charts/trino/values.yaml (worker.gracefulShutdown.gracePeriodSeconds: 120)"
+    }
+  ],
+  "views": {},
+  "sequences": {
+    "worker_shutdown": {
+      "phases": [
+        "grace_before",
+        "active_task_wait",
+        "grace_after"
+      ]
+    }
+  }
+}

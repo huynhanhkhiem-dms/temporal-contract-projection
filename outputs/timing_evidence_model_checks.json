@@ -1,0 +1,38 @@
+{
+  "checks": {
+    "mokka_decision_reversal": true,
+    "mokka_exact_envelope": true,
+    "mokka_projection_debt": true,
+    "trino_unknown": true
+  },
+  "mismatches": 0,
+  "mokka": {
+    "assumptions": [
+      "Closed configuration-clock model: treat the configured termination grace as the model horizon; documented grace extension, scheduler/runtime delay, hook failure, and process-exit overhead are outside this model."
+    ],
+    "deadline_seconds": 25.0,
+    "early_projection_certified": false,
+    "early_projection_deployment": [
+      30.0,
+      5.0
+    ],
+    "late_fusion_certified": true,
+    "late_fusion_deployment": [
+      15.0,
+      5.0
+    ],
+    "late_fusion_envelope": [
+      15.0,
+      10.0,
+      5.0
+    ],
+    "projection_debt_seconds": 15.0,
+    "status": "Finite"
+  },
+  "trino": {
+    "at_phase": "active_task_wait",
+    "reason": "no finite upper bound for required phase",
+    "status": "Unknown"
+  },
+  "verifier": "timing_evidence_models"
+}

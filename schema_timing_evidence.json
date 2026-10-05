@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:timing-evidence:v1",
+  "title": "Timing evidence model",
+  "type": "object",
+  "required": [
+    "schema",
+    "component",
+    "clock",
+    "claims"
+  ],
+  "properties": {
+    "schema": {
+      "const": "timing-evidence/v1"
+    },
+    "component": {
+      "type": "string",
+      "minLength": 1
+    },
+    "clock": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "clock",
+          "provenance"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "completion_upper",
+              "assumed_completion_upper",
+              "release_upper",
+              "release_exact",
+              "duration_upper",
+              "duration_exact",
+              "unknown_completion",
+              "unknown_release",
+              "unknown_duration",
+              "observed_sample_max",
+              "slo_target"
+            ]
+          },
+          "value_seconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "clock": {
+            "type": "string",
+            "minLength": 1
+          },
+          "provenance": {
+            "type": "string",
+            "minLength": 1
+          },
+          "assumption": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "pattern": "^(unknown_)"
+                }
+              }
+            },
+            "then": {},
+            "else": {
+              "required": [
+                "value_seconds"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "assumed_completion_upper"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "assumption"
+              ]
+            }
+          }
+        ],
+        "additionalProperties": true
+      }
+    },
+    "views": {
+      "type": "object"
+    },
+    "sequences": {
+      "type": "object"
+    },
+    "analysis": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

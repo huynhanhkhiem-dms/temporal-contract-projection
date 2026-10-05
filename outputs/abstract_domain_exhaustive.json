@@ -1,0 +1,193 @@
+{
+  "grid_points": 9,
+  "nonempty_sets": 511,
+  "realized_signatures": 9,
+  "galois_insertion_mismatches": 0,
+  "closure_extensivity_mismatches": 0,
+  "closure_idempotence_mismatches": 0,
+  "union_mismatches": 0,
+  "meet_soundness_mismatches": 0,
+  "canonical_meet_optimality_mismatches": 0,
+  "nonidentifiability_witness": {
+    "input_signature": [
+      2,
+      1
+    ],
+    "left": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "intersection": [
+      [
+        0,
+        0
+      ]
+    ],
+    "intersection_signature": [
+      0,
+      0
+    ]
+  },
+  "unbounded_conservatism_family": [
+    {
+      "M": 2,
+      "alpha_S": [
+        2,
+        2
+      ],
+      "alpha_T": [
+        2,
+        1
+      ],
+      "signature_only_meet": [
+        2,
+        1
+      ],
+      "exact_intersection_signature": [
+        1,
+        1
+      ],
+      "isolated_completion_ratio": 2.0
+    },
+    {
+      "M": 4,
+      "alpha_S": [
+        4,
+        4
+      ],
+      "alpha_T": [
+        4,
+        1
+      ],
+      "signature_only_meet": [
+        4,
+        1
+      ],
+      "exact_intersection_signature": [
+        1,
+        1
+      ],
+      "isolated_completion_ratio": 4.0
+    },
+    {
+      "M": 8,
+      "alpha_S": [
+        8,
+        8
+      ],
+      "alpha_T": [
+        8,
+        1
+      ],
+      "signature_only_meet": [
+        8,
+        1
+      ],
+      "exact_intersection_signature": [
+        1,
+        1
+      ],
+      "isolated_completion_ratio": 8.0
+    },
+    {
+      "M": 16,
+      "alpha_S": [
+        16,
+        16
+      ],
+      "alpha_T": [
+        16,
+        1
+      ],
+      "signature_only_meet": [
+        16,
+        1
+      ],
+      "exact_intersection_signature": [
+        1,
+        1
+      ],
+      "isolated_completion_ratio": 16.0
+    },
+    {
+      "M": 32,
+      "alpha_S": [
+        32,
+        32
+      ],
+      "alpha_T": [
+        32,
+        1
+      ],
+      "signature_only_meet": [
+        32,
+        1
+      ],
+      "exact_intersection_signature": [
+        1,
+        1
+      ],
+      "isolated_completion_ratio": 32.0
+    },
+    {
+      "M": 64,
+      "alpha_S": [
+        64,
+        64
+      ],
+      "alpha_T": [
+        64,
+        1
+      ],
+      "signature_only_meet": [
+        64,
+        1
+      ],
+      "exact_intersection_signature": [
+        1,
+        1
+      ],
+      "isolated_completion_ratio": 64.0
+    },
+    {
+      "M": 128,
+      "alpha_S": [
+        128,
+        128
+      ],
+      "alpha_T": [
+        128,
+        1
+      ],
+      "signature_only_meet": [
+        128,
+        1
+      ],
+      "exact_intersection_signature": [
+        1,
+        1
+      ],
+      "isolated_completion_ratio": 128.0
+    }
+  ]
+}

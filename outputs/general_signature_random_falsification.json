@@ -1,0 +1,12 @@
+{
+  "seed": 2026091407,
+  "requested_cases": 10000,
+  "accepted_cases": 10000,
+  "generated_candidates": 10000,
+  "max_nodes": 5,
+  "max_cartesian_product": 1024,
+  "realization_evaluations": 319723,
+  "mismatches": 0,
+  "first_mismatches": [],
+  "scope": "arbitrary finite non-negative local (release,duration) sets; direct DAG recurrence enumeration"
+}

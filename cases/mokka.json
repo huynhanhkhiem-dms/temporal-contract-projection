@@ -1,0 +1,50 @@
+{
+  "schema": "timing-evidence/v1",
+  "component": "NVIDIA Mokka control-plane",
+  "clock": "configuration",
+  "claims": [
+    {
+      "id": "pod_grace",
+      "kind": "assumed_completion_upper",
+      "value_seconds": 30,
+      "clock": "configuration",
+      "provenance": "NVIDIA/k8s-test-infra@27d03c241aec8c70f2c9699b899e780ffd9896b1:deployments/nvml-mock/helm/nvml-mock/values.yaml (controlPlane.terminationGracePeriodSeconds: 30)",
+      "assumption": "Closed configuration-clock model: treat the configured termination grace as the model horizon; documented grace extension, scheduler/runtime delay, hook failure, and process-exit overhead are outside this model."
+    },
+    {
+      "id": "prestop_sleep",
+      "kind": "release_exact",
+      "value_seconds": 10,
+      "clock": "configuration",
+      "provenance": "NVIDIA/k8s-test-infra@27d03c241aec8c70f2c9699b899e780ffd9896b1:deployments/nvml-mock/helm/nvml-mock/templates/controlplane-deployment.yaml (lifecycle.preStop.sleep.seconds: 10)"
+    },
+    {
+      "id": "http_drain",
+      "kind": "duration_upper",
+      "value_seconds": 5,
+      "clock": "configuration",
+      "provenance": "NVIDIA/k8s-test-infra@27d03c241aec8c70f2c9699b899e780ffd9896b1:deployments/nvml-mock/helm/nvml-mock/values.yaml (controlPlane.shutdownTimeout: 5s); implementation internal/controlplane/server.go (context.WithTimeout around http.Server.Shutdown); docs/tools/control-plane.md"
+    }
+  ],
+  "views": {
+    "platform": {
+      "claims": [
+        "pod_grace",
+        "prestop_sleep"
+      ]
+    },
+    "drain": {
+      "claims": [
+        "pod_grace",
+        "http_drain"
+      ]
+    }
+  },
+  "analysis": {
+    "fuse": [
+      "platform",
+      "drain"
+    ],
+    "deadline_seconds": 25
+  }
+}
