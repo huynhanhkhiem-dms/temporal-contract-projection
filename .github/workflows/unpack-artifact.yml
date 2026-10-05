@@ -1,0 +1,36 @@
+name: Unpack research artifact
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "artifact/GITHUB_ARTIFACT_UPLOAD_READY.zip"
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Expand artifact into repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          ARCHIVE="artifact/GITHUB_ARTIFACT_UPLOAD_READY.zip"
+          if [ ! -f "$ARCHIVE" ]; then
+            echo "Archive already expanded."
+            exit 0
+          fi
+          unzip -o "$ARCHIVE" -d .
+          rm -f "$ARCHIVE"
+          rmdir artifact 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Expand reproducibility artifact"
+          git push
